@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- HESSIAN configuration -->
+	<bean id="hessianSerializerFactory" class="com.ontimize.jee.common.hessian.CustomSerializerFactory" lazy-init="true">
+	</bean>
+	<bean id="hessianProxyFactory" class="com.ontimize.jee.common.hessian.OntimizeHessianProxyFactory" lazy-init="true">
+		<property name="serializerFactory" ref="hessianSerializerFactory" />
+	</bean>
+	
+		<!-- exception translator -->
+	<bean id="dbErrorMessagesTranslator" class="com.ontimize.jee.server.exceptiontranslator.DBErrorMessagesTranslator">
+		<constructor-arg>
+			<value>ontimize-dberrorstranslator.properties</value>
+		</constructor-arg>
+	</bean>
+	<bean id="exceptionTranslator" class="com.ontimize.jee.server.exceptiontranslator.OntimizeExceptionTranslator">
+		<property name="dbErrorMessagesTranslator" ref="dbErrorMessagesTranslator"></property>
+	</bean>
+	
+	
+<!-- Información del usuario -->	
+	<bean id="userInformationService" class="com.ontimize.jee.server.security.services.UserInformationServiceImpl" />
+	
+	<bean name="/userinformationservice" class="com.ontimize.jee.server.hessian.OntimizeHessianExporter" lazy-init="true">
+		<property name="service" ref="userInformationService" />
+		<property name="serviceInterface" value="com.ontimize.jee.common.services.user.IUserInformationService" />
+		<property name="serializerFactory" ref="hessianSerializerFactory" />
+        <property name="exceptionTranslator" ref="exceptionTranslator" />
+	</bean>
+	
+</beans>
