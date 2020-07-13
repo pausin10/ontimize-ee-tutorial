@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <ApplicationToolBar>
-
+   <ApToolBarButton attr="manager-about" icon="home_24.png" />
+   <ApToolBarFiller />
+   <ApToolBarButton icon="branches_24.png" attr="manager-branch" />
+   <ApToolBarFiller />
+   <ApToolBarButton attr="Exit" icon="door_exit_24.png" />
 </ApplicationToolBar>
