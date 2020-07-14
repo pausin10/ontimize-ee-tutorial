@@ -1,0 +1,11 @@
+<Form buttons="no" columns="" keys="" status="yes"
+	title="form.customers">
+	<FormHeader standardbuttons="no" />
+	<Table entity="CustomerService.customer"
+		cols="CUSTOMERID;CUSTOMERTYPEID;NAME;ADDRESS;COMMENTS;STARTDATE;SURNAME;ID;PHONE;EMAIL;LONGITUDE;LATITUDE"
+		visiblecols="CUSTOMERID;ID;NAME;SURNAME;CUSTOMERTYPEID;ADDRESS;STARTDATE;PHONE;EMAIL;LONGITUDE;LATITUDE"
+		key="CUSTOMERID" controls="yes" refreshbutton="yes"
+		form="formCustomer-detail.xml"
+		renderers="CUSTOMERTYPEID:comboReferenceTypeCustomer"
+		detailformat="{0} {1};NAME;SURNAME"></Table>
+</Form>

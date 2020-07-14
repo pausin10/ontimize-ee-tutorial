@@ -9,6 +9,9 @@
          <LocaleMenuItem attr="english" locale="en_US" />
       </MenuLocale>
    </Menu>
+      <Menu attr="menu.customer" text="menu.customer">
+      <MenuItem attr="manager-customer" text="manager-customer" />
+   </Menu>
    <Menu attr="menu.branch" text="menu.branch">
       <MenuItem attr="manager-branch" text="manager-branch" />
    </Menu>
