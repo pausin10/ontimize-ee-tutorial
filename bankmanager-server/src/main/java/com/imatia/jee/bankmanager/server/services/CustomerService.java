@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.imatia.jee.bankmanager.common.base.services.ICustomerService;
+import com.imatia.jee.bankmanager.server.dao.CustomerAccountDao;
 import com.imatia.jee.bankmanager.server.dao.CustomerDao;
 import com.imatia.jee.bankmanager.server.dao.CustomerTypeDao;
 import com.ontimize.db.EntityResult;
@@ -17,15 +18,20 @@ import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
 @Service("CustomerService")
-public class CustomerService implements ICustomerService{
-	
+public class CustomerService implements ICustomerService {
+
 	private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
-	
-	@Autowired private CustomerDao customerDao;
-	@Autowired private CustomerTypeDao customerTypeDao;
-	@Autowired private DefaultOntimizeDaoHelper daoHelper;
-	
-	 // ---- CUSTOMER ----
+
+	@Autowired
+	private CustomerDao customerDao;
+	@Autowired
+	private CustomerTypeDao customerTypeDao;
+	@Autowired
+	private CustomerAccountDao customerAccountDao;
+	@Autowired
+	private DefaultOntimizeDaoHelper daoHelper;
+
+	// ---- CUSTOMER ----
 
 	@Override
 	public EntityResult customerQuery(Map<String, Object> keysValues, List<String> attributes)
@@ -51,8 +57,8 @@ public class CustomerService implements ICustomerService{
 	public EntityResult customerDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.customerDao, keyValues);
 	}
-	
-	 // ---- CUSTOMER TYPE ----
+
+	// ---- CUSTOMER TYPE ----
 
 	@Override
 	public EntityResult customerTypeQuery(Map<String, Object> keysValues, List<String> attributes)
@@ -77,6 +83,32 @@ public class CustomerService implements ICustomerService{
 	@Transactional(rollbackFor = Exception.class)
 	public EntityResult customerTypeDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.customerTypeDao, keyValues);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public EntityResult customerAccountQuery(Map<String, Object> keysValues, List<String> attributes)
+			throws OntimizeJEERuntimeException {
+		return this.daoHelper.query(this.customerAccountDao, keysValues, attributes);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public EntityResult customerAccountInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException {
+		return this.daoHelper.insert(this.customerAccountDao, attributes);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public EntityResult customerAccountUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues)
+			throws OntimizeJEERuntimeException {
+		return this.daoHelper.update(this.customerAccountDao, attributes, attributes);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public EntityResult customerAccountDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
+		return this.daoHelper.delete(this.customerAccountDao, keyValues);
 	}
 
 }

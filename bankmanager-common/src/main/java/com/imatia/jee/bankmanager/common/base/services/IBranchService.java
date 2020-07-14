@@ -15,4 +15,11 @@ public interface IBranchService {
 	public EntityResult branchUpdate(Map<String, Object> attributes, Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 	public EntityResult branchDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 	
+	// ---- ACCOUNTS ----
+
+	 public EntityResult accountQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+	 public EntityResult accountInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
+	 public EntityResult accountUpdate(Map<String, Object> attributes, Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+	 public EntityResult accountDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+	
 }

@@ -44,4 +44,11 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
     	<property name="exceptionTranslator" ref="exceptionTranslator" />
 	</bean>
 	
+	<bean name="/movementservice" class="com.ontimize.jee.server.hessian.OntimizeHessianExporter" lazy-init="true">
+      	<property name="service" ref="MovementService" />
+     	<property name="serviceInterface" value="com.imatia.jee.bankmanager.common.base.services.IMovementService" />
+     	<property name="serializerFactory" ref="hessianSerializerFactory" />
+     	<property name="exceptionTranslator" ref="exceptionTranslator" />
+    </bean>
+	
 </beans>
