@@ -38,4 +38,17 @@
 		form="forms/branches/formBranches-detail.xml"
 		imanager="com.imatia.jee.bankmanager.client.utils.BasicInteractionManagerExpanded"
 		delayedload="yes" tree="forms/branches/treeBranches.xml" />
+
+	<TabbedFormManager id="manager-customer"
+		form="forms/customers/formCustomer.xml"
+		imanager="com.imatia.jee.bankmanager.client.managers.customers.IMCustomerTable"
+		delayedload="yes">
+		<InteractionManager form="formCustomer-detail.xml"
+			class="com.imatia.jee.bankmanager.client.utils.BasicInteractionManagerExpanded"></InteractionManager>
+		<InteractionManager
+			form="formCustomerType-detail.xml"
+			class="com.imatia.jee.bankmanager.client.utils.BasicInteractionManagerExpanded"></InteractionManager>
+	</TabbedFormManager>
+
+
 </com.imatia.jee.bankmanager.client.Application>

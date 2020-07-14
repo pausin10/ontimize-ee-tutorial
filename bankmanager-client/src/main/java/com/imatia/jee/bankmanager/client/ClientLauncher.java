@@ -37,7 +37,7 @@ public class ClientLauncher {
 //		Form.DEFAULT_DATABASE_BUNDLE = true;
 //		BasicApplicationPreferences.remoteUserPreferences = true;
 //		BasicApplicationPreferences.checkOldPreferences = false;
-
+		Table.rendererEditorConfigurationFile = "forms/conf/table_render_editor_config.xml";
 		new MultiModuleApplicationLauncher() {
 			@Override
 			protected void doInCreationThread(String labelsPath, String clientApplicationPath, String[] springConfigurationFiles, String[] args) {
