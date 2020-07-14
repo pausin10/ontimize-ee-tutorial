@@ -48,7 +48,12 @@
 			form="formCustomerType-detail.xml"
 			class="com.imatia.jee.bankmanager.client.utils.BasicInteractionManagerExpanded"></InteractionManager>
 	</TabbedFormManager>
-	 <FormManager id="manager-account" form="forms/accounts/formAccounts-detail.xml" 
-      imanager="com.imatia.jee.bankmanager.client.managers.accounts.IMAccounts"
-      delayedload="yes" tree="forms/accounts/treeAccounts.xml"/>
+	<FormManager id="manager-account"
+		form="forms/accounts/formAccounts-detail.xml"
+		imanager="com.imatia.jee.bankmanager.client.managers.accounts.IMAccounts"
+		delayedload="yes" tree="forms/accounts/treeAccounts.xml" />
+	<FormManager id="manager-employee"
+		form="forms/employees/formEmployees-detail.xml"
+		imanager="com.imatia.jee.bankmanager.client.utils.BasicInteractionManagerExpanded"
+		delayedload="yes" tree="forms/employees/treeEmployees.xml" />
 </com.imatia.jee.bankmanager.client.Application>

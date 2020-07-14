@@ -50,5 +50,12 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
      	<property name="serializerFactory" ref="hessianSerializerFactory" />
      	<property name="exceptionTranslator" ref="exceptionTranslator" />
     </bean>
+
+   <bean name="/employeeservice" class="com.ontimize.jee.server.hessian.OntimizeHessianExporter" lazy-init="true">
+      <property name="service" ref="EmployeeService" />
+      <property name="serviceInterface" value="com.imatia.jee.bankmanager.common.base.services.IEmployeeService" />
+      <property name="serializerFactory" ref="hessianSerializerFactory" />
+      <property name="exceptionTranslator" ref="exceptionTranslator" />
+   </bean>
 	
 </beans>
