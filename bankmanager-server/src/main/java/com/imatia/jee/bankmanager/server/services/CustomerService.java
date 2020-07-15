@@ -1,5 +1,7 @@
 package com.imatia.jee.bankmanager.server.services;
 
+import java.util.Base64;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +44,7 @@ public class CustomerService implements ICustomerService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public EntityResult customerInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException {
+		attributes = this.adaptBase64ImageField(CustomerDao.ATTR_PHOTO, attributes);
 		return this.daoHelper.insert(this.customerDao, attributes);
 	}
 
@@ -49,6 +52,7 @@ public class CustomerService implements ICustomerService {
 	@Transactional(rollbackFor = Exception.class)
 	public EntityResult customerUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues)
 			throws OntimizeJEERuntimeException {
+		attributes = this.adaptBase64ImageField(CustomerDao.ATTR_PHOTO, attributes);
 		return this.daoHelper.update(this.customerDao, attributes, KeyValues);
 	}
 
@@ -109,6 +113,18 @@ public class CustomerService implements ICustomerService {
 	@Transactional(rollbackFor = Exception.class)
 	public EntityResult customerAccountDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.customerAccountDao, keyValues);
+	}
+
+	public Map<String, Object> adaptBase64ImageField(String field, Map<String, Object> attributes) {
+		if (attributes.get(field) instanceof String) {
+			String objectPhoto = (String) attributes.remove(field);
+			Map<String, Object> mapAttr = new HashMap<>();
+			mapAttr.putAll((Map<String, Object>) attributes);
+			mapAttr.put(field, Base64.getDecoder().decode(objectPhoto));
+			return mapAttr;
+		} else {
+			return attributes;
+		}
 	}
 
 }
