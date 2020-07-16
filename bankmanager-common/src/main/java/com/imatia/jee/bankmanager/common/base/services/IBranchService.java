@@ -10,16 +10,33 @@ import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 public interface IBranchService {
 
 	// ---- BRANCHES ----
-	public EntityResult branchQuery(Map<String,Object> keysValues, List<String> attributes) throws OntimizeJEEException;
+	public EntityResult branchQuery(Map<String, Object> keysValues, List<String> attributes)
+			throws OntimizeJEEException;
+
 	public EntityResult branchInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
-	public EntityResult branchUpdate(Map<String, Object> attributes, Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+
+	public EntityResult branchUpdate(Map<String, Object> attributes, Map<String, Object> keyValues)
+			throws OntimizeJEERuntimeException;
+
 	public EntityResult branchDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
-	
+
 	// ---- ACCOUNTS ----
 
-	 public EntityResult accountQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
-	 public EntityResult accountInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
-	 public EntityResult accountUpdate(Map<String, Object> attributes, Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
-	 public EntityResult accountDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
-	
+	public EntityResult accountQuery(Map<String, Object> keysValues, List<String> attributes)
+			throws OntimizeJEERuntimeException;
+
+	public EntityResult accountInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
+
+	public EntityResult accountUpdate(Map<String, Object> attributes, Map<String, Object> keyValues)
+			throws OntimizeJEERuntimeException;
+
+	public EntityResult accountDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+
+	public EntityResult accountBalanceQuery(Map<String, Object> keysValues, List<String> attributes)
+			throws OntimizeJEERuntimeException;
+
+	public EntityResult accountBalanceUpdate(Map<String, Object> attributes, Map<String, Object> keyValues)
+			throws OntimizeJEERuntimeException;
+
+	public EntityResult accountBalanceDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 }
