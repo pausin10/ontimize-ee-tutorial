@@ -81,7 +81,7 @@
 		<keytool-api-1.7.version>1.4</keytool-api-1.7.version>
 		<jep.version>2.24</jep.version>
 		<commons-fileupload.version>1.3.2</commons-fileupload.version>
-		<jackson.version>2.9.4</jackson.version>
+		<jackson.version>2.12.1</jackson.version>
 		<!-- =========================================================== -->
 		<!-- Server context -->
 		<!-- =========================================================== -->
